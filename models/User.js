@@ -45,12 +45,11 @@ const userSchema = new mongoose.Schema(
  * Pre-save hook: Hash password before saving.
  * Uses regular function (not arrow) because `this` must refer to the document.
  */
-userSchema.pre('save', async function (next) {
-    if (!this.isModified('password')) return next();
+userSchema.pre('save', async function () {
+    if (!this.isModified('password')) return;
 
     const salt = await bcrypt.genSalt(12);
     this.password = await bcrypt.hash(this.password, salt);
-    next();
 });
 
 /**
