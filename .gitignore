@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+
+# Uploads
+uploads/
+
+# OS files
+.DS_Store
+
+# Qdrant data
+qdrant_data/
